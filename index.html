@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF8F1" />
+    <meta name="description" content="我要吃飯飯巴布 2.0：選好預算、飢餓程度、天氣和用餐時段，讓巴布幫你想想今天吃什麼！" />
+    <title>我要吃飯飯巴布 2.0｜今天晚餐吃什麼？</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#picker">跳至晚餐選擇</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#home" aria-label="我要吃飯飯巴布 2.0，回到首頁">
+          <span class="brand-icon" aria-hidden="true">🍚</span>
+          <span>巴布<span class="brand-dot">.</span><small>DINNER PICKER</small></span>
+        </a>
+        <nav class="top-nav" aria-label="主要導覽">
+          <a href="#picker">今晚吃什麼</a>
+          <a href="#history">推薦紀錄</a>
+          <a href="#about">關於巴布</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-sparkle" aria-hidden="true">✦</span> 每天最難的選擇題，就交給巴布吧</span>
+          <h1 id="hero-title">今晚吃什麼？<br /><span class="highlight">巴布幫你想！</span></h1>
+          <p class="hero-description">便當、麵麵、還是熱呼呼的鍋？選幾個小條件，讓巴布替你的選擇困難按下暫停鍵 ✨</p>
+          <a class="button button-main hero-cta" href="#picker">開始選晚餐 <span aria-hidden="true">↗</span></a>
+          <div class="hero-notes"><span>♡ 不用登入</span><span>♡ 免費使用</span><span>♡ 秒速推薦</span></div>
+        </div>
+        <div class="hero-illustration" role="img" aria-label="一個笑咪咪的白飯巴布，站在粉紅色圓形背景前，旁邊有飯糰和星星">
+          <div class="illustration-circle"></div>
+          <div class="float-icon float-icon-left" aria-hidden="true">🍙</div>
+          <div class="float-icon float-icon-right" aria-hidden="true">✨</div>
+          <div class="mascot">
+            <div class="mascot-steam steam-one"></div><div class="mascot-steam steam-two"></div>
+            <div class="rice-top"><span class="rice-grain grain-one"></span><span class="rice-grain grain-two"></span><span class="rice-grain grain-three"></span></div>
+            <div class="bowl">
+              <div class="bowl-shine"></div>
+              <div class="mascot-face"><span class="eye"></span><span class="mouth"></span><span class="eye"></span></div>
+              <div class="blush blush-left"></div><div class="blush blush-right"></div>
+            </div>
+            <div class="mascot-arm arm-left"></div><div class="mascot-arm arm-right"></div>
+            <div class="mascot-foot foot-left"></div><div class="mascot-foot foot-right"></div>
+          </div>
+          <div class="mascot-speech">今天也要吃飽飽 ♡</div>
+        </div>
+      </section>
+
+      <section class="picker-wrap" id="picker" aria-labelledby="picker-title">
+        <div class="shell picker-layout">
+          <div class="section-intro">
+            <span class="overline">01 / LET'S PICK</span>
+            <h2 id="picker-title">讓巴布了解你<span class="text-accent"> ♡</span></h2>
+            <p>照著直覺選就好，沒有標準答案！</p>
+            <div class="mini-babu" aria-hidden="true">🍡<span>選好四個條件就出發！</span></div>
+          </div>
+          <form class="picker-card" id="dinner-form" novalidate>
+            <div class="picker-card-top">
+              <div><span class="form-kicker">YOUR DINNER MOOD</span><h3>今天的你是什麼狀態？</h3></div>
+              <span id="progress-text" class="progress-count" aria-live="polite">0 / 4 已完成</span>
+            </div>
+            <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-fill"></div></div>
+
+            <fieldset class="question-group" data-question="budget">
+              <legend><span class="question-number">01</span> 今天想花多少錢？ <span class="question-emoji" aria-hidden="true">💰</span></legend>
+              <div class="choices choices-three">
+                <label class="choice"><input type="radio" name="budget" value="low" /><span>100 元以下</span></label>
+                <label class="choice"><input type="radio" name="budget" value="mid" /><span>101～200 元</span></label>
+                <label class="choice"><input type="radio" name="budget" value="high" /><span>201 元以上</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="question-group" data-question="hunger">
+              <legend><span class="question-number">02</span> 肚子現在有多餓？ <span class="question-emoji" aria-hidden="true">🥺</span></legend>
+              <div class="choices choices-three">
+                <label class="choice"><input type="radio" name="hunger" value="light" /><span>有點餓</span></label>
+                <label class="choice"><input type="radio" name="hunger" value="normal" /><span>普通</span></label>
+                <label class="choice"><input type="radio" name="hunger" value="hungry" /><span>超級餓！</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="question-group" data-question="weather">
+              <legend><span class="question-number">03</span> 現在的天氣感覺？ <span class="question-emoji" aria-hidden="true">☁️</span></legend>
+              <div class="choices choices-four">
+                <label class="choice"><input type="radio" name="weather" value="hot" /><span>☀️ 炎熱</span></label>
+                <label class="choice"><input type="radio" name="weather" value="rain" /><span>🌧️ 下雨</span></label>
+                <label class="choice"><input type="radio" name="weather" value="cold" /><span>🧣 偏冷</span></label>
+                <label class="choice"><input type="radio" name="weather" value="normal" /><span>🌤️ 一般</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="question-group question-last" data-question="time">
+              <legend><span class="question-number">04</span> 準備吃哪一餐？ <span class="question-emoji" aria-hidden="true">🕗</span></legend>
+              <div class="choices choices-two">
+                <label class="choice"><input type="radio" name="time" value="dinner" /><span>🌆 晚餐</span></label>
+                <label class="choice"><input type="radio" name="time" value="late" /><span>🌙 宵夜</span></label>
+              </div>
+            </fieldset>
+
+            <p class="form-message" id="form-message" aria-live="polite"></p>
+            <button class="button button-main decide-button" type="submit">🍚 巴布！幫我決定 <span aria-hidden="true">→</span></button>
+            <p class="form-footnote">✧ 不用擔心，選錯也可以重新選！</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="result-section shell" id="result" aria-labelledby="result-title">
+        <div class="section-heading centered"><span class="overline">02 / THE ANSWER</span><h2 id="result-title">巴布的美食靈感 ✨</h2><p>答案會在這裡揭曉喔～</p></div>
+        <div class="result-placeholder" id="result-placeholder"><span aria-hidden="true" class="placeholder-emoji">🍽️</span><p>巴布正在抱著飯碗等你選完四個條件～</p><span>上面選好了，就來抽一份今天的幸福！</span></div>
+        <article class="result-card" id="result-card" hidden aria-live="polite" aria-atomic="true">
+          <div class="result-sticker">巴布推薦！</div>
+          <div id="food-emoji" class="result-food" aria-hidden="true">🍱</div>
+          <span class="result-label">今天就決定吃⋯</span>
+          <h3 id="food-name"></h3>
+          <p class="result-description" id="food-description"></p>
+          <p class="reason-bubble" id="food-reason"></p>
+          <p class="result-note" id="result-note"></p>
+          <div class="result-actions"><button class="button button-secondary" id="again-button" type="button">🔄 再推薦一次</button><a class="button button-outline" href="#picker">調整條件 ↑</a></div>
+        </article>
+      </section>
+
+      <section class="history-section" id="history" aria-labelledby="history-title">
+        <div class="shell history-shell">
+          <div class="history-heading"><div><span class="overline">03 / LITTLE MEMORIES</span><h2 id="history-title">巴布的小小紀錄本 <span aria-hidden="true">📒</span></h2><p>每次的美食靈感，都幫你留在這裡。</p></div><button id="clear-history" class="clear-button" type="button" disabled>清除全部紀錄</button></div>
+          <div class="history-list" id="history-list" aria-live="polite"><div class="history-empty">還沒有推薦紀錄，今天來吃點好吃的吧 ♡</div></div>
+          <p class="history-note" id="history-note">紀錄只儲存在這個瀏覽器，最多保留最近 20 筆。</p>
+        </div>
+      </section>
+
+      <section class="about-section shell" id="about" aria-labelledby="about-title"><div class="about-card"><span class="about-emoji" aria-hidden="true">💌</span><div><span class="overline">A LITTLE ABOUT BABU</span><h2 id="about-title">嗨嗨，我是巴布！</h2><p>我是一個熱愛吃飯的呆萌小幫手。雖然我沒有辦法直接幫你訂餐廳，但我可以根據你選的條件，用簡單的規則推薦食物種類，陪你解決「到底吃什麼」的大難題！</p><p class="about-fineprint">※ 本站使用本地 JavaScript 進行條件式推薦，沒有串接即時 AI、真實餐廳價格或天氣資料。</p></div></div></section>
+    </main>
+    <footer class="footer"><div class="shell footer-inner"><span>🍚 我要吃飯飯巴布 2.0</span><span>願你每天都吃到喜歡的 ♡</span></div></footer>
+  </body>
+</html>
